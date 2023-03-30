@@ -1,33 +1,43 @@
 import 'package:thatflowercardgame/thatflowercardgame.dart';
-import 'package:test/test.dart';
-
+import 'package:flutter_test/flutter_test.dart';
 void main() {
+var deck = new Deck();
+  
+  print(deck);
+
+
   test('should return white lily', () {
-    
+  
   });
+  print("hello world");
 }
 
 class Deck {
   List<Card> cards = [];
   
-  Deck(){
-  var flowers = ['Lily'];
-  var colors = ['White'];
-
-  for (var flower in flowers){
-    for  (var color in colors){
-      var card = new Card(flower, color);
-      cards.add(card);
+  Deck() {
+    var colors = ['white','blue','purple'];
+    
+    var flowers = ['Lily','dandelion','sunflower'];
+    
+    for (var color in colors){
+      for (var flower in flowers){
+        var card = new Card(color, flower);
+        cards.add(card);
+      }
     }
-
   }
+  toString() {
+    return cards.toString();
   }
-
-
 }
-
+//:)
 class Card{
-  String flower;
   String color;
-  Card(this.flower, this.color);
+  String flower;
+  
+  Card(this.color, this.flower);
+    toString(){
+      return '$flower $color';
+    }
 }
